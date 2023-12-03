@@ -28,3 +28,15 @@ To restore, run
 
 [konsole-session-restore](https://github.com/Kelvin-Ng/konsole-session-restore): A set of scripts that save and restore Konsole sessions in KDE Plasma. Can be used together with this script.
 
+## Known Issues
+
+### Cannot autorun
+
+Currently I have not found a way to make the script work with autorun (automatically save statuses at logout) because the script may start after some applications close, and these applications will not be saved. Contribution is welcomed if you have a way to ensure the execution order between the scripts and the applications.
+
+Also, because this script relies on the caption to identify the windows, the restoring script can only run after the captions stablize. However, applications like Firefox will first reopen the windows with default captions and slowly update the captions as the tabs load. Contribution is welcomed if you have a way to programmatically run the restoring script after the captions stablize.
+
+### Conflicting captions
+
+As we identify windows with captions, windows that have the same captions will not be restored correctly.
+
