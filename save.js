@@ -2,7 +2,7 @@ var res = {}
 
 const clients = workspace.clientList();
 for (var i = 0; i < clients.length; i++) {
-    if (clients[i].desktop == -1) {
+    if (clients[i].specialWindow) {
         continue;
     }
     one_res = {'activities': clients[i].activities, 'desktop': clients[i].desktop};
