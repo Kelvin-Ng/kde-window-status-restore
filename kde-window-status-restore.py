@@ -8,8 +8,18 @@ import signal
 from dbus.mainloop.glib import DBusGMainLoop
 from gi.repository import GLib
 import sys
+import os
 
 SCRIPT_NAME = 'KdeWindowStatusRestore'
+
+def get_xdg_data_home():
+    xdg_data_home = os.getenv('XDG_DATA_HOME')
+    if xdg_data_home is None:
+        xdg_data_home = os.getenv('HOME') + '/.local/share'
+    return xdg_data_home
+
+def get_data_path():
+    return get_xdg_data_home() + '/kde-window-status-restore'
 
 class KdeWindowStatusRestore:
     def __init__(self, is_restore):
@@ -76,7 +86,7 @@ class KdeWindowStatusRestore:
         @dbus.service.method(dbus_interface="org.kde.kwin.Script",
                              in_signature="", out_signature="s")
         def Read(self):
-            with open(os.path.dirname(os.path.realpath(__file__)) + '/data/saved.txt', 'r') as f:
+            with open(get_data_path() + '/saved.txt', 'r') as f:
                 return f.read()
 
         @dbus.service.method(dbus_interface="org.kde.kwin.Script",
@@ -84,7 +94,7 @@ class KdeWindowStatusRestore:
         def Save(self, res):
             self.caller.cleanup()
 
-            with open(os.path.dirname(os.path.realpath(__file__)) + '/data/saved.txt', 'w') as f:
+            with open(get_data_path() + '/saved.txt', 'w') as f:
                 f.write(res)
 
             self.loop.quit()
