@@ -17,12 +17,14 @@ To save statuses, run
 ```
 ./kde-window-status-restore-save.sh
 ```
+This can be configured to run automatically on logout by adding it to System Settings > Startup and Shutdown > Autostart > Add > Add Logout Script.
 
 To restore, run
 
 ```
 ./kde-window-status-restore-restore.sh
 ```
+This can be binded to a keyboard shortcut (e.g. Super + Shift + R) which can be used to restore the windows after they have all been opened.
 
 ## Related
 
