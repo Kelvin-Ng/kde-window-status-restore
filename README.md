@@ -24,7 +24,7 @@ To restore, run
 ```
 ./kde-window-status-restore-restore.sh
 ```
-This can be binded to a keyboard shortcut (e.g. Super + Shift + R) which can be used to restore the windows after they have all been opened.
+This can be binded to a keyboard shortcut (e.g. Super + Shift + R) which can be used to restore the windows after they have all been opened manually by the user.
 
 ## Related
 
