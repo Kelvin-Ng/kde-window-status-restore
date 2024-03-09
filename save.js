@@ -1,6 +1,6 @@
 var res = {}
 
-const clients = workspace.clientList();
+const clients = workspace.windowList();
 for (var i = 0; i < clients.length; i++) {
     if (clients[i].specialWindow) {
         continue;

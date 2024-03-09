@@ -43,7 +43,7 @@ class KdeWindowStatusRestore:
             self.dbus_listen()
             self.dbus_send(
                 service='org.kde.KWin', 
-                path='/' + str(self.script_id), 
+                path='/Scripting/Script' + str(self.script_id),
                 interface='org.kde.kwin.Script'
             ).run()
 

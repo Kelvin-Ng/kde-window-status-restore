@@ -1,6 +1,6 @@
 callDBus('org.kde.KWin.Script.KdeWindowStatusRestore', '/callback', 'org.kde.kwin.Script', 'Read', function (res_str) {
     const res = JSON.parse(res_str);
-    const clients = workspace.clientList();
+    const clients = workspace.windowList();
     for (var i = 0; i < clients.length; i++) {
         if (clients[i].specialWindow) {
             continue;
